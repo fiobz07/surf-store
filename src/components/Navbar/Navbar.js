@@ -2,7 +2,7 @@ import React from 'react';
 import './Navbar.css';
 import Cartwidget from '../Cartwidget/Cartwidget';
 import Button from 'react-bootstrap/Button';
-
+import { Link } from 'react-router-dom';
 
 const Navbar = () =>{
   return (

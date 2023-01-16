@@ -8,5 +8,6 @@
 
 .ItemListContainer .h1{
     color: hsl(271, 76%, 53%);
-    font-size: 40px;
+    font-size: 30px;
+    margin-top: 15px;
 }

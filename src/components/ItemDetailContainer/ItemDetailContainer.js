@@ -3,6 +3,7 @@ import {getProductById} from '../../asynckMock';
 import { useState, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
+
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
@@ -22,7 +23,7 @@ const ItemDetailContainer = () => {
     }, [productId])
     return (
         <div>
-            <h1> Detalle de producto</h1>
+            <h4> Detalle de producto</h4>
             <ItemDetail {... product} />
         </div>
     )

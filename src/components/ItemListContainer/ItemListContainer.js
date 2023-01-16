@@ -1,5 +1,5 @@
 import React from "react";
-import "./ItemListContainer.css";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import {getProducts, getProductsByCategory} from '../../asynckMock';
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import "./ItemListContainer.css";
 
 const ItemListContainer = ({ greeting }) => {
 	const [products, setProducts] = useState([])

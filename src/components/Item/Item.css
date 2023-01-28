@@ -1,0 +1,24 @@
+.CardItem{
+    background-color: rgba(245, 245, 249, 0.992);
+    display: grid;
+    padding:15px;
+    margin:10px;
+    justify-content: center;
+    color: blueviolet;
+}
+
+.CardItem .ItemImg{
+    max-width:100%;
+}
+
+.CardItem .Header .ItemHeader{
+    font-size: 15px;
+}
+ .CardItem .Info{
+    font-size: 10px;
+    margin-top:15px;
+ }
+ .CardItem .ItemFooter .Option {
+    font-size:10px;
+    color:blueviolet; 
+ }

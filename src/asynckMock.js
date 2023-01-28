@@ -59,7 +59,7 @@ const products= [
         categoryId:'tablas_de_surf',
         img:'/images/TABLA-DE-SURF-DE-LA-UZ-MARY-510-36.8L.-1.jpg',
         stock: 10,
-        description:' TABLA DE SURF DE LA UZ MARY 5’10 36.8L.',
+        description:'TABLA DE SURF DE LA UZ MARY 5’10 36.8L.',
     },
     {
         id:'7',

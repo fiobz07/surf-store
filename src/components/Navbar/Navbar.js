@@ -1,19 +1,27 @@
 import React from 'react';
+import {useContext} from 'react'
 import Cartwidget from '../Cartwidget/Cartwidget';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
+import {CartContext} from '../../Context/CartContext';
+import { Link } from 'react-router-dom';
 
 const Navbar = () =>{
+
+  const navigate = useNavigate();
+  const {totalQuantity} = useContext(CartContext)
+
+
   return (
     <nav style={{ display: 'flex', justifyContent: 'space-around', alignItems:'center'}}>
-      <h1> Ecommerce</h1>
+      <h1 onClick={()=>navigate("/")}> Ecommerce</h1>
       <div style={{display: 'flex', justifyContent: 'space-around', width:'75%'}}>
-        <Button variant="secondary" href='/'> Ver todo</Button>
-        <Button variant="secondary" href='/category/tablas_de_surf'>  Surf</Button>
-        <Button variant="secondary"  href='/category/tablas_de_skate'> Skate </Button>
-        <Button variant="secondary"  href='/category/tablas_de_snow'> Snow</Button>
-        <Cartwidget />
+
+        <Link className="btn btn-secondary" role="button"to="/"> Ver todo </Link>
+        <Link className="btn btn-secondary" role="button"to="/category/tablas_de_surf"> Surf </Link>
+        <Link className="btn btn-secondary" role="button"to="/category/tablas_de_skate"> Skate </Link>
+        <Link className="btn btn-secondary" role="button"to="/category/tablas_de_snow"> Snow </Link>
+        <Cartwidget totalQuantity={totalQuantity} />
       </div>
     </nav>
   )

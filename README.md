@@ -30,4 +30,4 @@ REACT_APP_appId=
 
 ## Test App
 
-[Deploy](https://zuvcommerce.vercel.app)
+[Deploy](https://surf-store.vercel.app/)

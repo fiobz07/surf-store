@@ -1,16 +1,17 @@
 import React from "react";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useEffect, useState } from "react";
-import {getProducts, getProductsByCategory} from '../../asynckMock';
 import ItemList from "../ItemList/ItemList";
+import {getDocs, collection, query, where} from 'firebase/firestore'
+import {db} from '../../services/firebase/firebasConfig'
 import { useParams } from "react-router-dom";
 import "./ItemListContainer.css";
 
 const ItemListContainer = ({ greeting }) => {
 	const [products, setProducts] = useState([])
+	const [category, setCategory] = useState({category:''})
 	const [loading, setLoading] = useState(true)
 
 	const { categoryId } = useParams()
@@ -22,15 +23,46 @@ const ItemListContainer = ({ greeting }) => {
 	useEffect(() => {
 		setLoading(true)
 
-		const asyncFunction = categoryId ? getProductsByCategory : getProducts
+		const collectionRef = categoryId 
+		? query(collection(db, 'products'), where('categoryId', '==', categoryId))
+		: collection(db, 'products')
 
-		asyncFunction(categoryId).then(response => {
-			setProducts(response)
+		const getCategoryTitle = categoryId
+			? query(collection(db, 'categories'), where('categoryId', '==', categoryId))
+			: false
+
+
+
+		if (getCategoryTitle) {
+			getDocs(getCategoryTitle).then(response => {
+				const categoriesAdapted = response.docs.map(doc =>{
+					const data = doc.data()
+					return {id: doc.id, ...data}
+				})
+				setCategory(categoriesAdapted[0])
+
+			}).catch(error => {
+				console.log(error)
+			}).finally(() => {
+				setLoading(false)
+			})
+		}
+
+
+		getDocs(collectionRef).then(response => {
+			const productsAdapted = response.docs.map(doc =>{
+				const data = doc.data()
+				return {id: doc.id, ...data}
+			})
+			setProducts(productsAdapted)
+
 		}).catch(error => {
 			console.log(error)
 		}).finally(() => {
 			setLoading(false)
 		})
+
+
 	}, [categoryId])
 
 
@@ -40,7 +72,7 @@ const ItemListContainer = ({ greeting }) => {
 
 	return (
 		<div className='ItemListContainer'>
-			<h1>{greeting}</h1>
+			<h1>{categoryId ? category.category : greeting}</h1>
 			<ItemList products={products} />
 		</div>
 	)

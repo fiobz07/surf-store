@@ -1,24 +1,24 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/Navbar/Navbar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Navbar from './components/Navbar/Navbar'
+import { BrowserRouter} from 'react-router-dom'
+import { CartProvider } from './Context/CartContext'
+import { NotificationProvider } from './notification/NotificationService'
+import AppRouter from "./components/AppRouter/AppRouter";
+
 
 function App() {
-  
+
   return (
     <div className="App">
-     
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<ItemListContainer greeting='Todos nuestros productos'/>}/>
-          <Route path='/category/:categoryId' element={<ItemListContainer greeting='Productos filtrados'/>} />
-          <Route path='/detail/:productId' element={<ItemDetailContainer />} />
-        </Routes>
-      </BrowserRouter>
-      
+      <NotificationProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <Navbar />
+            <AppRouter/>
+          </BrowserRouter>
+        </CartProvider>
+      </NotificationProvider>
     </div>
     );
 }

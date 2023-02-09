@@ -1,0 +1,31 @@
+.CardItem{
+    background-color: rgba(245, 245, 249, 0.992);
+    display: flex;
+    padding:15px;
+    margin:10px 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: blueviolet;
+
+    .ItemImg{
+        max-width:300px;
+    }
+
+    .Header {
+        .ItemHeader{
+            font-size: 15px;
+        }
+    }
+
+    .Info{
+        font-size: 10px;
+        margin-top:15px;
+    }
+    .ItemFooter {
+        .Option {
+            font-size:10px;
+            color:blueviolet;
+        }
+    }
+}

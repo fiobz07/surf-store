@@ -5,6 +5,11 @@ import { FaShoppingBasket } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Cartwidget = ({ totalQuantity }) => {
+
+    if(totalQuantity === 0){
+        return null;
+    }
+
   return (
     <Link to='/cart' className="Cartwidget">
       <IconContext.Provider value={{ size:'2em' }}>

@@ -1,4 +1,4 @@
-import ItemCart from "../Item/ItemCart/ItemCart"
+import ItemCart from "../ItemCart/ItemCart"
 const CartList=( {cart} ) => {
 
     return (

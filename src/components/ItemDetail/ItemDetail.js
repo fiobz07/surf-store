@@ -2,7 +2,7 @@ import {useState, useContext} from "react"
 import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 import {CartContext} from '../../Context/CartContext';
-import {NotificationContext} from '../../App';
+import {NotificationContext} from '../../notification/NotificationService';
 
 
 
@@ -32,11 +32,9 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
     const setNotification = useContext(NotificationContext)
 
     const handleOnAdd = (quantity) => {
-        console.log('agregue al carrito: ', quantity)
-        //setQuantity(paserInt(quantity))
-        
+
         addItem({id, name, price, quantity})
-        setNotification(`Se agrego correctamente ${quantity} ${name}`)
+        setNotification(`Se agrego correctamente ${quantity} ${name}`, 3, 'success')
     }
 
     return (
@@ -58,6 +56,10 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
                 </p>
                 <p className="Info">
                     Precio: {price}
+                </p>
+
+                <p className="Info">
+                    Stock: {stock}
                 </p>
             </section>
             <footer className='ItemFooter'>

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import "./Item.css"
+import "./Item.scss"
 import {useContext} from 'react'
 import {CartContext} from '../../Context/CartContext';
 
-const Item = ({id, name, img, price}) => {
+const Item = ({id, name, img, price, stock}) => {
 
     
     return (
@@ -20,6 +20,9 @@ const Item = ({id, name, img, price}) => {
                 <p className="Info">
                     Precio: ${price}
                 </p>
+                  <p className="Info">
+                    Stock: {stock}
+                  </p>
             </section>
             <footer className='ItemFooter'>
                 <Link to={`/detail/${id}`} className='Option'>Ver detalle</Link>

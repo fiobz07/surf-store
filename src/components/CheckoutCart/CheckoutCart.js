@@ -3,6 +3,7 @@ import {CartContext} from '../../Context/CartContext';
 import {collection, query, where, documentId, getDocs, writeBatch, addDoc} from "firebase/firestore";
 import {db} from '../../services/firebase/firebasConfig'
 import FormCheckout from "../FormCheckOut/FormCheckout";
+import CartList from "../CartList/Cartlist";
 
 const checkoutCart = () => {
   const [loading, setLoading] = useState(false)
@@ -14,12 +15,14 @@ const checkoutCart = () => {
     try {
       const orderObject = {
         buyer: {
-          name: 'Fiorella Baez',
-          phone: '1234555332',
-          email: 'fiorella@gmail.com'
+          name,
+          phone,
+          email,
         },
         items: cart,
-        total
+        total,
+        date: new Date(),
+        state: 'generada'
       }
       const batch = writeBatch(db);
 
@@ -99,6 +102,8 @@ const checkoutCart = () => {
   return (
     <div>
       <h1>checkout</h1>
+      <CartList cart={cart}/>
+      <h3 className="totalCheckout">Total: ${total}</h3>
       <FormCheckout onGenerateOrder={createOrder}/>
     </div>
   )

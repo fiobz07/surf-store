@@ -1,13 +1,10 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import {getDocs, collection, query, where} from 'firebase/firestore'
 import {db} from '../../services/firebase/firebasConfig'
 import { useParams } from "react-router-dom";
-import "./ItemListContainer.css";
+import "./ItemListContainer.scss";
 
 const ItemListContainer = ({ greeting }) => {
 	const [products, setProducts] = useState([])
@@ -17,7 +14,7 @@ const ItemListContainer = ({ greeting }) => {
 	const { categoryId } = useParams()
 
 	useEffect(() => {
-		document.title = 'Todos los productos'
+		document.title = categoryId ? category.category : greeting
 	}, [])
 
 	useEffect(() => {

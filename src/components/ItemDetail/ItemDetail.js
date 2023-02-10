@@ -1,8 +1,8 @@
 import {useState, useContext} from "react"
 import { Link } from "react-router-dom"
-import ItemCount from "../ItemCount/ItemCount"
 import {CartContext} from '../../Context/CartContext';
 import {NotificationContext} from '../../notification/NotificationService';
+import './IteamDetail.scss'
 
 
 
@@ -18,7 +18,7 @@ const InputCount = ({onConfirm, stock, initial= 1}) => {
     return (
         <div>
             <input type='number' onChange={handleChange} value={count}/>
-            <button onClick={() => onConfirm(count)}>Agregar al carrito</button>
+            <button type="button" className="btn btn-secondary" onClick={() => onConfirm(count)}>Agregar al carrito</button>
         </div>
     )
 }
@@ -63,11 +63,12 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
                 </p>
             </section>
             <footer className='ItemFooter'>
+                <InputCount stock={stock} onConfirm={handleOnAdd} />
                 {
                     isInCart (id)  ? (
-                        <Link to='/cart'>Terminar compra</Link>
+                        <Link type="button" className="btn btn-secondary"  to='/cart'>Terminar compra</Link>
                     ) : (
-                        <InputCount stock={stock} onConfirm={handleOnAdd} />
+                      ''
                     )
                 }
             </footer>

@@ -1,0 +1,12 @@
+.navBar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 15px 0 0;
+
+	.navListContainer {
+		width: 70%;
+		display: flex;
+		justify-content: flex-end;
+	}
+}

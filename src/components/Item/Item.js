@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
 import "./Item.scss"
-import {useContext} from 'react'
-import {CartContext} from '../../Context/CartContext';
 
 const Item = ({id, name, img, price, stock}) => {
 
@@ -25,7 +23,7 @@ const Item = ({id, name, img, price, stock}) => {
                   </p>
             </section>
             <footer className='ItemFooter'>
-                <Link to={`/detail/${id}`} className='Option'>Ver detalle</Link>
+                <Link type="button" className="btn btn-secondary Option" to={`/detail/${id}`}>Ver detalle</Link>
             </footer>
         </article>
     )

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useContext} from 'react'
 import Cartwidget from '../Cartwidget/Cartwidget';
 import {useNavigate} from 'react-router-dom';
-import './Navbar.css';
+import './Navbar.scss';
 import {CartContext} from '../../Context/CartContext';
 import NavList from '../NavList/NavList';
 import {getDocs, collection} from 'firebase/firestore'
@@ -32,10 +32,9 @@ const Navbar = () => {
 
 
   return (
-    <nav style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <nav className="navBar" >
       <h1 onClick={() => navigate("/")}> Surf - Store</h1>
-      <div style={{width: '70%',display: 'flex',justifyContent: 'flex-end'}}>
-
+      <div className="navListContainer">
         <NavList categories={categories}/>
         <Cartwidget totalQuantity={totalQuantity}/>
       </div>

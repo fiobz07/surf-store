@@ -1,10 +1,12 @@
 import {useState, createContext} from "react"
+import useLocalStorage from "use-local-storage";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
 
-    const [cart, setCart] = useState([])
+    //const [cart, setCart] = useState([])
+    const [cart, setCart] = useLocalStorage('cart', [])
 
     const addItem = (productToAdd) => {
         if (!isInCart (productToAdd.id)) {

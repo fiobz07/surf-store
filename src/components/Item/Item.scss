@@ -1,7 +1,7 @@
 .CardItem{
-    background-color: rgba(245, 245, 249, 0.992);
+    background-color: #f5f5f9fd;
     display: flex;
-    padding:15px;
+    padding:32px;
     margin:10px 0;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,7 @@
     .ItemFooter {
         .Option {
             font-size:10px;
-            color:blueviolet;
+            color: #f5f5f9fd;
         }
     }
 }

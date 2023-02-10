@@ -29,6 +29,7 @@ $ npm start
 - [Firebase](https://firebase.com)
 - [use-local-storage](https://www.npmjs.com/package/use-local-storage) To save in local storage
 - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [React-icons](https://github.com/react-icons/react-icons)
 
 ## Test App
 

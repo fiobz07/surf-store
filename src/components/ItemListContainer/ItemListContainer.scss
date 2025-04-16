@@ -1,15 +1,13 @@
 .ItemListContainer {
-    
-    display: flex;
-    max-width: 100%;
-    padding: 0 32px;
-    flex-direction: column;
-    h1{
-        color: hsl(271, 76%, 53%);
-        font-size: 30px;
-        margin-top: 15px;
-        padding: 25px;
-    }
+	display: flex;
+	max-width: 100%;
+	padding: 0 32px;
+	flex-direction: column;
+	h1 {
+		color: hsl(271, 100%, 25%);
+		font-size: 60px;
+		margin-top: 15px;
+		padding: 25px;
+		font-weight: 400;
+	}
 }
-
-

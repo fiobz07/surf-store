@@ -1,31 +1,31 @@
-.CardItem{
-    background-color: #f5f5f9fd;
-    display: flex;
-    padding:32px;
-    margin:10px 0;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: blueviolet;
+.CardItem {
+	background-color: #f5f5f9fd;
+	display: flex;
+	padding: 32px;
+	margin: 10px 0;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: rgb(65, 65, 66);
 
-    .ItemImg{
-        max-width:300px;
-    }
+	.ItemImg {
+		max-width: 300px;
+	}
 
-    .Header {
-        .ItemHeader{
-            font-size: 15px;
-        }
-    }
+	.Header {
+		.ItemHeader {
+			font-size: 15px;
+		}
+	}
 
-    .Info{
-        font-size: 10px;
-        margin-top:15px;
-    }
-    .ItemFooter {
-        .Option {
-            font-size:10px;
-            color: #f5f5f9fd;
-        }
-    }
+	.Info {
+		font-size: 10px;
+		margin-top: 15px;
+	}
+	.ItemFooter {
+		.Option {
+			font-size: 10px;
+			color: #f5f5f9fd;
+		}
+	}
 }
